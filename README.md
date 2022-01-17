@@ -1,4 +1,4 @@
-client - html page for viewing data in the server
+client - html page for viewing data in the sql db via the server
 
 server - serves getAll function over tcp
 
