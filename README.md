@@ -14,4 +14,4 @@ IMDB doesnt provide a public api.  This project scrapes some imdb pages and stor
 
 
 
-the server and scraper depend on a mysql database being available on their network
+the server and scraper depend on a mysql database being available on a docker network named imdb-scrape
