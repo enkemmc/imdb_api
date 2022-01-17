@@ -1,0 +1,1 @@
+docker run -d --rm --name one_time_scrape --network imdb-scrape imdb_scrape_script
