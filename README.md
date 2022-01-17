@@ -7,7 +7,7 @@ IMDB doesnt provide a public api.  This project scrapes some imdb pages and stor
 
 **client** - html page for viewing data in the sql db via the server
 
-**server** - serves getAll function over tcp
+**server** - serves getAll function over http
 
 **scraper** - scrapes imdb pages and puts the data into the server
 
