@@ -15,3 +15,58 @@ IMDB doesnt provide a public api.  This project scrapes some imdb pages and stor
 
 
 the server and scraper depend on a mysql database being available on a docker network named imdb-scrape
+
+Example
+![alt text](/resources/screenshots/client_using_api.gif)
+
+
+
+<!-- markdownlint-disable MD004 MD033 MD034 -->
+
+<div align="center">
+  
+# Notification App
+  
+![ajour banner](./resources/Susge.png)
+  
+</div>
+  
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Install](#install)
+- [Example](#example)
+
+## Introduction
+Basically a crude wrapper around the excellent work by the good folks over at Fyne (https://github.com/fyne-io/fyne)
+This module allows you to receive desktop notifications whenever events occur in your existing codebase by implementing the LinkProvider interface.
+
+<div align="center">
+
+[![Download Button](./resources/download-button.png)](https://github.com/enkemmc/notification_app/releases)
+
+</div>
+
+## Screenshots
+
+<p align="center">
+  <img width="410"
+       alt="Showing UI"
+       src="/resources/screenshots/client_using_api.gif">
+</p>
+
+## Features
+
+- Lorem Ipsum
+  - Dolor
+  - Sit
+- Lorem Ipsum
+
+## Install
+
+``
+go get -u github.com/enkemmc/notification_app
+``
+
