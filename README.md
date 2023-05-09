@@ -29,7 +29,8 @@ Before you can use this project, you'll need to install Docker on your machine. 
 
 1. Clone this repository
 2. Navigate to the root directory
-3. Run `docker-compose up`
+3. Run `./start.sh` to start the app.  Logs will be output the logs folder.
+4. Run `./stop.sh` to stop the app.
 
 ## Usage
 
