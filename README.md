@@ -25,7 +25,7 @@ This project contains three subfolders:
 
 ## Installation
 
-Before you can use this project, you'll need to Docker on your machine. Once you've done that, follow these steps:
+Before you can use this project, you'll need to install Docker on your machine. Once you've done that, follow these steps:
 
 1. Clone this repository
 2. Navigate to the root directory
