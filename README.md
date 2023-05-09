@@ -1,39 +1,46 @@
+# IMDB Movie Scraper
+
+IMDB doesn't provide a public API. This project offers a solution by scraping selected IMDB pages and storing the movie names and ratings in a MySQL database. It then serves the database through a single REST API endpoint, and provides a simple web client that allows users to view and filter movies by name substring.
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Screenshots](#screenshots)
-- [Install](#install)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [License](#license)
 
 ## Introduction
-IMDB doesnt provide a public api.  This project scrapes some imdb pages and stores the movie names and ratings in a database.  It then serves the database through one endpoint via a rest api.  It also has a very simple webclient that displays whats in the database and a simple filter of the movie names by substring.
 
+This project contains three subfolders:
 
-**What are these subfolders?**
-
-**client** - html page for viewing data in the sql db via the server
-
-**server** - serves getAll function over http
-
-**scraper** - scrapes imdb pages and puts the data into the server
-
-
-the server and scraper depend on a mysql database being available on a docker network named imdb-scrape
+- `client`: contains an HTML page for viewing data in the SQL database via the server
+- `server`: serves the `getAll` function over HTTP
+- `scraper`: scrapes IMDB pages and puts the data into the server
 
 ## Screenshots
 
-<p align="center">
-  <img width="410"
-       alt="Showing UI"
-       src="/resources/screenshots/client_using_api.gif">
-</p>
+![Showing UI](/resources/screenshots/client_using_api.gif)
 
-## Install
+## Installation
 
-1. Install MySQL
-2. Install Docker
-3. Clone this repository
-4. Run the .sh script in the /server and /client folders
-5. Run the .sh script in the /scraper folder.  You can schedule this to run at an interval using a program like crontab.
-6. View the client at http://localhost:3000 to search for movie ratings that are now stored in your database!  
+Before you can use this project, you'll need to Docker on your machine. Once you've done that, follow these steps:
 
+1. Clone this repository
+2. Navigate to the root directory
+3. Run `docker-compose up`
 
+## Usage
+
+After installing the project, you can view the client by navigating to `http://localhost:3000` in your web browser. From there, you can search for movie ratings that are now stored in your database!  You can scrape additional parts of IMDB by adding additional scraping functions to the scraper.
+
+## Dependencies
+
+This project depends on the following software:
+
+- Docker
+
+## License
+
+This project is licensed under the MIT License.

@@ -19,12 +19,14 @@ const {
 let pool;
 
 async function init() {
+    console.log('api server attempting to connect to db')
     const host = HOST_FILE ? fs.readFileSync(HOST_FILE) : HOST;
     const user = USER_FILE ? fs.readFileSync(USER_FILE) : USER;
     const password = PASSWORD_FILE ? fs.readFileSync(PASSWORD_FILE) : PASSWORD;
     const database = DB_FILE ? fs.readFileSync(DB_FILE) : DB;
 
     await waitPort({ host, port : 3306});
+    console.log('api server succcessfully connected to db')
 
     pool = mysql.createPool({
         connectionLimit: 5,
@@ -34,9 +36,10 @@ async function init() {
         database,
     });
 
+
     return new Promise((acc, rej) => {
         pool.query(
-            `CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id varchar(36) UNIQUE, title varchar(255), score float)`,
+            `CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id varchar(36) UNIQUE, title varchar(255), score float) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`,
             err => {
                 if (err) return rej(err);
 

@@ -3,6 +3,7 @@ const { get_raw_html, get_dom } = require('../helpers')
 const url = 'https://www.imdb.com/chart/top/?ref_=nv_mv_250'
 
 async function top_250(){
+    console.log('scraping top 250')
     const { data } = await get_raw_html(url)
     const dom = get_dom(data, url)
     const { window } = dom
@@ -19,6 +20,7 @@ async function top_250(){
         movies[id] = { title, score, id }
     }
 
+    console.log('finished top 250')
     return movies
 }
 

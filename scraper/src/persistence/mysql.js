@@ -19,12 +19,18 @@ const {
 let pool;
 
 async function init() {
+    console.log('initializing mysql')
     const host = HOST_FILE ? fs.readFileSync(HOST_FILE) : HOST;
     const user = USER_FILE ? fs.readFileSync(USER_FILE) : USER;
     const password = PASSWORD_FILE ? fs.readFileSync(PASSWORD_FILE) : PASSWORD;
     const database = DB_FILE ? fs.readFileSync(DB_FILE) : DB;
 
+    console.log(`Host: ${host}`);
+    console.log(`User: ${user}`);
+    console.log(`Password: ${password}`);
+    console.log(`Database: ${database}`);
     await waitPort({ host, port : 3306});
+    console.log('connection found! creating pool.')
 
     pool = mysql.createPool({
         connectionLimit: 5,
@@ -36,7 +42,7 @@ async function init() {
 
     return new Promise((acc, rej) => {
         pool.query(
-            `CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id varchar(36) UNIQUE, title varchar(255), score float)`,
+            `CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id varchar(36) UNIQUE, title varchar(255), score float) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`,
             err => {
                 if (err) return rej(err);
 
@@ -83,12 +89,14 @@ async function getItem(id) {
 }
 
 async function storeItem(item) {
-    return new Promise((acc, rej) => {
+    return new Promise((acc, _rej) => {
         pool.query(
             `REPLACE INTO ${TABLE_NAME} (id, title, score) VALUES (?, ?, ?)`,
             [item.id, item.title, item.score],
             err => {
-                if (err) return rej(err);
+                if (err){
+                  console.log(`unable to store ${JSON.stringify(item)}`)
+                }
                 acc();
             },
         );

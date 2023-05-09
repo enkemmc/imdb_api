@@ -7,6 +7,7 @@ let db, dbAll, dbRun;
 const TABLE_NAME = 'imdb'
 
 function init() {
+    console.log('initializing sqlite')
     const dirName = require('path').dirname(location);
     if (!fs.existsSync(dirName)) {
         fs.mkdirSync(dirName, { recursive: true });

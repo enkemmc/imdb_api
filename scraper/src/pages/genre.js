@@ -4,7 +4,7 @@ const { get_raw_html, get_dom, log_failure, derive_movie_id, extract_query } = r
 const url = 'https://www.imdb.com/feature/genre/'
 
 async function genre(){
-    console.log(`parsing genres page for urls`)
+    console.log('scraping genres')
     const { data } = await get_raw_html(url)
     const dom = get_dom(data, url)
     const { window } = dom
@@ -39,6 +39,7 @@ async function genre(){
 
     await Promise.all(proms)
 
+    console.log('finished genres')
     return ratings
 }
 
